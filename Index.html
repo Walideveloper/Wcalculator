@@ -1,0 +1,105 @@
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		/* Add some basic styling */
+		body {
+			font-family: Arial, sans-serif;
+		}
+		.calculator {
+			width: 200px;
+			margin: 50px auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		.button {
+			width: 50px;
+			height: 50px;
+			margin: 5px;
+			padding: 10px;
+			border: none;
+			border-radius: 10px;
+			background-color: #4CAF50;
+			color: #fff;
+			cursor: pointer;
+		}
+		.button:hover {
+			background-color: #3e8e41;
+		}
+		#result {
+			width: 100%;
+			height: 50px;
+			margin: 10px 0;
+			padding: 10px;
+			border: none;
+			border-radius: 10px;
+			background-color: #f9f9f9;
+			font-size: 24px;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="calculator">
+		<input type="text" id="result" disabled>
+		<div class="buttons">
+			<button class="button" onclick="appendNumber('1')">1</button>
+			<button class="button" onclick="appendNumber('2')">2</button>
+			<button class="button" onclick="appendNumber('3')">3</button>
+			<button class="button" onclick="appendOperator('+')">+</button>
+			<button class="button" onclick="appendNumber('4')">4</button>
+			<button class="button" onclick="appendNumber('5')">5</button>
+			<button class="button" onclick="appendNumber('6')">6</button>
+			<button class="button" onclick="appendOperator('-')">-</button>
+			<button class="button" onclick="appendNumber('7')">7</button>
+			<button class="button" onclick="appendNumber('8')">8</button>
+			<button class="button" onclick="appendNumber('9')">9</button>
+			<button class="button" onclick="appendOperator('*')">*</button>
+			<button class="button" onclick="appendNumber('0')">0</button>
+			<button class="button" onclick="clearResult()">C</button>
+			<button class="button" onclick="calculateResult()">=</button>
+			<button class="button" onclick="appendOperator('/')">/</button>
+		</div>
+	</div>
+	<script>
+		// Get the result input element
+		const resultElement = document.getElementById('result');
+		
+		// Append a number to the result
+		function appendNumber(number) {
+			resultElement.value += number;
+		}
+		
+		// Append an operator to the result
+		function appendOperator(operator) {
+			resultElement.value += operator;
+		}
+		
+		// Clear the result
+		function clearResult() {
+			resultElement.value = '';
+		}
+		
+		// Calculate the result
+		function calculateResult() {
+			try {
+				const result = eval(resultElement.value);
+				resultElement.value = result;
+			} catch (error) {
+				resultElement.value = 'Error';
+			}
+		}
+	</script>
+</body>
+</html>
+```
+
+
+This code creates a basic calculator with buttons for numbers 0-9, operators (+, -, *, /), and a clear button. When you click the "=" button, it evaluates the expression in the input field using the `eval()` function.
+
+
+Note: This is a basic example and doesn't handle errors or edge cases. You can improve it by adding more features and validation.
